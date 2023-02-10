@@ -30,6 +30,20 @@ function prepareObjects(jsonData) {
   jsonData.forEach((jsonObject) => {
     // TODO: Create new object with cleaned data - and store that in the allAnimals array
     // TODO: MISSING CODE HERE !!!
+    const animal = Object.create(Animal); // create object
+
+    const animalData = jsonObject["fullname"].split(" "); // make array with each jsonobject
+
+    // setting data
+    animal.name = animalData[0];
+    animal.desc = animalData[2];
+    animal.type = animalData[3];
+    animal.age = jsonObject["age"];
+
+    //adding it on new dataset (array)
+    allAnimals.push(animal);
+
+    console.log(animal.name);
   });
 
   displayList();
